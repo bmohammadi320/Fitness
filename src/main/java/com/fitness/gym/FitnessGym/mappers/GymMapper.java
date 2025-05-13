@@ -2,7 +2,9 @@ package com.fitness.gym.FitnessGym.mappers;
 
 import com.fitness.gym.FitnessGym.dtos.GymDto;
 import com.fitness.gym.FitnessGym.entities.Gym;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GymMapper {
     public Gym mapToGym (GymDto gymDto){
         Gym gym = new Gym();
