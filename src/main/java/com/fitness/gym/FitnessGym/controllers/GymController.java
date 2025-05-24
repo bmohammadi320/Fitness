@@ -5,10 +5,7 @@ import com.fitness.gym.FitnessGym.services.GymService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/gym")
@@ -19,5 +16,10 @@ public class GymController {
     @PostMapping
     public ResponseEntity<GymDto> addGym(@RequestBody GymDto gymDto){
         return new ResponseEntity<>(gymService.createGym(gymDto), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<GymDto> getGym(@PathVariable int id){
+      return ResponseEntity.ok(gymService.getGymById(id));
     }
 }
